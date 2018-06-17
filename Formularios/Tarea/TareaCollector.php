@@ -63,11 +63,10 @@ class TareaCollector extends Collector
 
 
 
-  function updateTarea($cod_tarea,$descripcion,$descripcion_mat,$descripcion_ta,$fecha_entrega)
+  function updateTarea($cod_tarea,$descripcion_ta,$fecha_entrega)
   {
     //echo $cargo;
-    $update = self::$db->getRow("Update tarea set  curso_cod='$descripcion',materia_cod='$descripcion_mat'
-      ,descripcion_ta='$descripcion_ta',fecha_entrega='$fecha_entrega' where cod_tarea='$cod_tarea'");
+    $update = self::$db->getRow("Update tarea set  descripcion_ta='$descripcion_ta',fecha_entrega='$fecha_entrega' where cod_tarea='$cod_tarea'");
 
     echo ' <br><br><br><div class="container">
     <div class="row object-non-visible" data-animation-effect="fadeIn">
@@ -155,7 +154,7 @@ class TareaCollector extends Collector
 
   function insertTarea($curso, $materia, $deber, $fecha_entrega)
   {
-    $fecha_act = date('d/m/y');
+    $fecha_act = date('Y-m-d');
 
 
         $new_row = self::$db->getRow("Insert into tarea (fecha,materia_cod,curso_cod,descripcion_ta,fecha_entrega) values ('$fecha_act','$materia','$curso','$deber','$fecha_entrega')");

@@ -115,33 +115,16 @@ $CursoCollectorObj = new CursoCollector();
           <input type="text" name="cod_tarea" id="cod_tarea" class="form-control" value="<?php echo $ObjTarea->getcod_tarea(); ?>" style="visibility: hidden">
 
           <div class="col-sm-5 col-sm-offset-1">
-            <div class="form-group">
-              <label>Curso: *</label>
-              <select class="form-control" typeof="checkbox" name="curso">
+              <div class="form-group">
+                  <label>Curso: </label>
+                  <input type="text" name="curso" id="curso" class="form-control" disabled value="<?php echo $ObjTarea->getdescripcion();?>"  >
+              </div>
 
-                <?php
-                foreach ($CursoCollectorObj->showCurso() as $c) {
-                  echo '<option value=' . $c->getcod_curso() . '>';
-                  echo $c->getdescripcion();
-                  echo '</option>';
-                }
-                ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Materia a dictar: *</label>
-              <select class="form-control" typeof="checkbox"  name="materia">
-                echo
+              <div class="form-group">
+                  <label>Curso: </label>
+                  <input type="text" name="materia" id="materia" class="form-control" disabled value="<?php echo $ObjTarea->getdescripcion_mat();?>"  >
+              </div>
 
-                <?php
-                foreach ($MateriaCollectorObj->showMateria() as $c) {
-                  echo '<option value=' . $c->getcod_materia() . '>';
-                  echo $c->getdescripcion_mat();
-                  echo '</option>';
-                }
-                ?>
-              </select>
-            </div>
           </div>
           <div class="col-sm-5">
             <div class="form-group">

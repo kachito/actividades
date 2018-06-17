@@ -4,8 +4,7 @@ include_once('TareaCollector.php');
 //include_once('Estudiante.php');
 
 $cod_tarea = $_POST['cod_tarea'];
-$curso = $_POST['curso'];
-$materia = $_POST['materia'];
+
 $deber = $_POST['deber'];
 $fecha_entrega = $_POST['fecha_entrega'];
 
@@ -14,7 +13,7 @@ $fecha_entrega = $_POST['fecha_entrega'];
 
 
 $TareaCollectorObj = new TareaCollector();
-$TareaCollectorObj->updateTarea($cod_tarea,$curso,$materia,$deber,$fecha_entrega);
+$TareaCollectorObj->updateTarea($cod_tarea,$deber,$fecha_entrega);
 
 ?>
 <!doctype html>
