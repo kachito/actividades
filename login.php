@@ -34,9 +34,7 @@ if (isset($_SESSION['usuario'])) {
 <!-- Navigation -->
 <section id="intro" class="intro-section">
   <!-- Video Background -->
-  <video id="video_background" preload="auto" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="video/educacion.mp4" type="video/mp4"/>
-  </video>
+  <img id="video_background" src="video/educacion.jpg" alt="Smiley face" >
   <!-- / End Video Start Container -->
   <div class="wow bounceIn" data-wow-delay="0.3s">
     <div class="container">
@@ -53,12 +51,12 @@ if (isset($_SESSION['usuario'])) {
                     <section class="login element-emphasis-strong">
                       <form action="login/datos.php" method="post">
                         <div class="form-group">
-                          <label type="text"> <font color="white" > Usuario: </font></label>
-                          <input type="text" name="usuario">
+                          <label type="text" > <font color="white" > <i class="fa fa-user"></i> </font></label>
+                          <input type="text" name="usuario"placeholder="Usuario">
                         </div>
                         <div class="form-group">
-                          <label for="password"><font color="white" > Contraseña: </font> </label>
-                          <input type="password" name="password">
+                          <label for="password"><font color="white" > <i class="fa fa-key"></i> </font> </label>
+                          <input type="password" name="password" placeholder="Contraseña">
                         </div>
                         <div class="btn_inicio">
 
