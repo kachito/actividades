@@ -1,0 +1,189 @@
+﻿
+
+
+<div class="row">
+  <div class="col-md-12">
+
+
+
+
+    <div class="table-responsive">
+      <?php if ($_SESSION['usuario']['descripcion'] == 'Alumno') {
+  echo '
+        <div class="table-responsive">
+      <table class="table table-condensed table-bordered table-hover   table-striped  ">
+        <thead>
+        <tr>
+          <th bgcolor="#D8D8D8">MATERIA</th>
+          <th bgcolor="#D8D8D8">DESCRIPCIÓN</th>
+          <th bgcolor="#D8D8D8">FECHA ENTREGA</th>
+        </tr>
+        </thead>';
+
+        $ban = 0;
+        foreach ($TareaCollectorObj->showTareaCurso() as $c) {
+        if ($ban == 0) {
+        $fech = $c->getfecha();
+        $ban = 1;
+        echo '<h3> Fecha: ' . $c->getfecha() . ' </h3>';
+        }
+        if ($fech == $c->getfecha()) {
+        echo '<tbody>
+      <tr>
+        <td>' . $c->getdescripcion_mat() . '</td>
+        <td>' . $c->getdescripcion_ta() . '</td>
+        <td>' . $c->getfecha_entrega() . '</td>';
+        } else {
+        $ban = 0;
+        }
+        }
+        echo ' </tr>
+      </tbody>
+      </table>
+    </div> ';
+    } else {
+    echo '
+    <div class="table-responsive">
+      <table class="table table-condensed table-bordered table-hover">
+        <thead>
+        <tr align="center">
+          <th align="center" bgcolor="#D8D8D8">HORA</th>
+          <th align="center" bgcolor="#D8D8D8">INICIO</th>
+          <th align="center" bgcolor="#D8D8D8">FIN</th>
+          <th align="center" bgcolor="#D8D8D8">ASIGNATURA</th>
+          <th align="center" bgcolor="#D8D8D8">CURSO</th>
+          <th align="center" bgcolor="#D8D8D8">DESCRIPCIÓN</th>
+          <th align="center" bgcolor="#D8D8D8">No. ALUMNOS</th>
+          <th align="center" bgcolor="#D8D8D8">OBSERVACIONES</th>
+          <th align="center" colspan=3 bgcolor="#D8D8D8">ACCION</th>
+        </tr>
+        </thead>';
+        foreach ($TareaCollectorObj->showTarea() as $c) {
+        echo '
+        <tbody>
+        <tr>
+          <td> 1</td>
+          <td> ' . $c->getfecha() . ' </td>
+          <td>' . $c->getfecha() . '</td>
+          <td>' . $c->getdescripcion_mat() . '</td>
+          <td>' . $c->getdescripcion() . '</td>
+          <td>' . $c->getdescripcion_ta() . '</td>
+          <td>' . $c->getfecha_entrega() . '</td>
+          <td>14</td>
+          <td><a href="Tarea_edit.php?id=' . $c->getcod_Tarea() . '"> <i class="fa fa-pencil-square-o" ></i></a></td>
+          <td><a href="#"><i class="fa fa-check-square-o"></i></a></td>
+          <td><a href="Tarea_delete.php?id=' . $c->getcod_Tarea() . '"><i class="fa fa-trash-o"></i></a></td>
+        </tr>
+        </tbody>';
+        }
+        echo '</table> ';
+      } ?>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="table-responsive">
+  <?php if ($_SESSION['usuario']['descripcion'] == 'Alumno') {
+  echo '
+        <div class="table-responsive">
+          <table class="table table-condensed table-bordered table-hover   table-striped  ">
+            <thead>
+              <tr>
+                <th bgcolor="#D8D8D8">MATERIA</th>
+                <th bgcolor="#D8D8D8">DESCRIPCIÓN</th>
+                <th bgcolor="#D8D8D8">FECHA ENTREGA</th>
+              </tr>
+            </thead>';
+
+              $ban = 0;
+              foreach ($TareaCollectorObj->showTareaCurso() as $c) {
+                if ($ban == 0) {
+                  $fech = $c->getfecha();
+                  $ban = 1;
+                  echo '<h3> Fecha: ' . $c->getfecha() . ' </h3>';
+                }
+                if ($fech == $c->getfecha()) {
+                  echo '<tbody>
+                      <tr>
+                        <td>' . $c->getdescripcion_mat() . '</td>
+                        <td>' . $c->getdescripcion_ta() . '</td>
+                        <td>' . $c->getfecha_entrega() . '</td>';
+                } else {
+                   $ban = 0;
+                }
+              }
+                echo ' </tr>
+                </tbody>
+          </table>
+        </div> ';
+  } else {
+      echo '
+          <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover">
+              <thead>
+                  <tr align="center">
+                    <th align="center" bgcolor="#D8D8D8">HORA</th>
+                    <th align="center" bgcolor="#D8D8D8">INICIO</th>
+                    <th align="center" bgcolor="#D8D8D8">FIN</th>
+                    <th align="center" bgcolor="#D8D8D8">ASIGNATURA</th>
+                    <th align="center" bgcolor="#D8D8D8">CURSO</th>
+                    <th align="center" bgcolor="#D8D8D8">DESCRIPCIÓN</th>
+                    <th align="center" bgcolor="#D8D8D8">No. ALUMNOS</th>
+                    <th align="center" bgcolor="#D8D8D8">OBSERVACIONES</th>
+                    <th align="center" colspan=3 bgcolor="#D8D8D8">ACCION</th>
+                  </tr>
+              </thead>';
+              foreach ($TareaCollectorObj->showTarea() as $c) {
+              echo '
+                <tbody>
+                  <tr>
+                    <td> 1</td>
+                    <td> ' . $c->getfecha() . ' </td>
+                    <td>' . $c->getfecha() . '</td>
+                    <td>' . $c->getdescripcion_mat() . '</td>
+                    <td>' . $c->getdescripcion() . '</td>
+                    <td>' . $c->getdescripcion_ta() . '</td>
+                    <td>' . $c->getfecha_entrega() . '</td>
+                    <td>14</td>
+                    <td><a href="Tarea_edit.php?id=' . $c->getcod_Tarea() . '"> <i class="fa fa-pencil-square-o" ></i></a></td>
+                    <td><a href="#"><i class="fa fa-check-square-o"></i></a></td>
+                    <td><a href="Tarea_delete.php?id=' . $c->getcod_Tarea() . '"><i class="fa fa-trash-o"></i></a></td>
+                  </tr>
+                </tbody>';
+  }
+  echo '</table> ';
+  } ?>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

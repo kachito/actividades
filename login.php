@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['usuario'])) {
-  header('Location: users/home.php ');
+  header('Location: simple/new.php ');
 } else if (['descripcion'] == "3") {
   header('Location:index.php');
 }
